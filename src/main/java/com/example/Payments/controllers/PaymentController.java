@@ -22,4 +22,11 @@ public class PaymentController {
         String url = paymentService.generatePaymentLink(paymentRequestDto.getOrderId(),paymentRequestDto.getAmount());
         return url;
     }
+
+    @PostMapping("/webhooks")
+    public String handleWebhook(){
+         System.out.println("Request for webhook received");;
+         System.out.println("Updating db....");
+         return "webhook completed";
+    }
 }
